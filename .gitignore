@@ -1,0 +1,3 @@
+/target
+*.jpg
+!/input_data/input.jpg

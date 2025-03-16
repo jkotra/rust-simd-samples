@@ -20,9 +20,8 @@ pub fn to_grayscale_simd_u8(width: u32, height: u32, image_data: Vec<u8>) -> Vec
     let g_coeff = u16x8::splat(150);
     let b_coeff = u16x8::splat(29);
 
-    for chunk in image_data.chunks(4 * 8) {
-        // 4 rgba pixels elements in each loop
-
+    for chunk in image_data.chunks(8 * 4) {
+        // process 8 RGBA pixels at a time.
         let mut a = [0; 8];
         let mut b = [0; 8];
         let mut c = [0; 8];
